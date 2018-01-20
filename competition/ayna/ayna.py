@@ -13,7 +13,7 @@ def get_max_concat(words):
     # set scores
     for j in xrange(len(words)):
         for k in xrange(j + 1, len(words)):
-            scores[i][j] = get_score(words[i], words[j])
+            scores[j][k] = get_score(words[j], words[k])
 
     # get max score
     max_score = 0
