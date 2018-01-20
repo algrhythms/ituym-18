@@ -4,7 +4,21 @@
 
 
 def get_score(str1, str2):
-    return 0
+    result = 0
+    len1, len2 = len(str1), len(str2)
+    i = 0 if len1 <= len2 else len1-len2
+    while i < len1:
+        j, temp_count = 0, 0
+        if str1[i] == str2[j]:
+            while i < len1 and j < len2 and str1[i] == str2[j]:
+                temp_count += 1
+                i += 1
+                j += 1
+            if temp_count > result:
+                result = temp_count
+        else:
+            i += 1
+    return result
 
 
 def get_max_concat(words):
@@ -29,7 +43,7 @@ def get_max_concat(words):
 if __name__ == '__main__':
     loop_cnt = int(raw_input())
     strings = []
-    for i in xrange(loop_cnt):
+    for _ in xrange(loop_cnt):
         strings.append(raw_input())
     strings.sort()
     print get_max_concat(strings)
