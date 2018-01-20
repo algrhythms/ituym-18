@@ -6,7 +6,7 @@
 def get_score(str1, str2):
     result = 0
     len1, len2 = len(str1), len(str2)
-    i = 0 if len1 <= len2 else len1-len2
+    i = 0 if len1 <= len2 else len1 - len2
     while i < len1:
         j, temp_count = 0, 0
         if str1[i] == str2[j]:
@@ -14,7 +14,7 @@ def get_score(str1, str2):
                 temp_count += 1
                 i += 1
                 j += 1
-            if temp_count > result:
+            if i == len1:
                 result = temp_count
         else:
             i += 1
