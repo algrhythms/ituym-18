@@ -6,7 +6,7 @@ int main(){
     int n, temp;
     std::cin >> n;
 
-    int *nums = new int[n]();
+    int *nums = new int[n];
 
     for(int i = 0; i < n; ++i){
         std::cin >> temp;
@@ -17,7 +17,7 @@ int main(){
     std::cin >> nOps;
     ops = new int*[nOps];
     for(int i = 0; i < nOps; ++i){
-        ops[i] = new int[4]();
+        ops[i] = new int[4];
         std::cin >> temp;
 
         if(temp == 1){
