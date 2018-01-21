@@ -2,23 +2,21 @@
 
 
 int main(){
-    int n, temp;
+    int n;
     std::cin >> n;
 
     int *nums = new int[n];
 
-    for(int i = 0; i < n; ++i){
-        std::cin >> temp;
-        nums[i] = temp;
-    }
+    for(int i = 0; i < n; ++i)
+        std::cin >> nums[i];
 
-    int nOps, l, r, x, sum;
+    int nOps, opCode, l, r, x, sum;
     std::cin >> nOps;
     for(int i = 0; i < nOps; ++i){
         sum = 0;
 
-        std::cin >> temp;
-        switch(temp){
+        std::cin >> opCode;
+        switch(opCode){
         case 1:
             sum = 0;
             std::cin >> l >> r;
