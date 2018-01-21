@@ -8,12 +8,13 @@
 unsigned int get_score (const std::string &lhs, const std::string &rhs)
 { // dumb version of KMP string search
 	unsigned int lsize = lhs.size(), rsize = rhs.size();
-	unsigned int i = 0, temp, score = 0, lpos = lsize;
+	unsigned int i = 0, temp, score = 0;
+	int lpos = lsize;
 
 	lpos = lhs.rfind(rhs[0], lpos - 1);
 	while (lpos != -1 && lpos + rsize >= lsize) {
 		temp = 0;
-		for(int j = lpos; j < lsize; ++j){
+		for(size_t j = lpos; j < lsize; ++j){
 			if(lhs[j] == rhs[i++])
 				temp++;
 			else{
