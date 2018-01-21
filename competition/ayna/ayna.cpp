@@ -8,12 +8,13 @@
 unsigned int get_score (const std::string &lhs, const std::string &rhs)
 { // dumb version of KMP string search
 	unsigned int lsize = lhs.size(), rsize = rhs.size();
-	unsigned int i = 0, temp, score = 0;
+	unsigned int temp, score = 0;
 	unsigned int lpos = lhs.rfind(rhs[0], lsize - 1);
 
+	size_t i = 0, j;
 	while (lpos + rsize >= lsize) {
 		temp = 0;
-		for(size_t j = lpos; j < lsize; ++j){
+		for(j = lpos; j < lsize; ++j){
 			if(lhs[j] == rhs[i++])
 				temp++;
 			else{
@@ -39,12 +40,12 @@ unsigned int get_score (const std::string &lhs, const std::string &rhs)
 
 int get_max_concat (std::string words[], size_t size)
 {
+	size_t i, j;
 	unsigned int **scores = new unsigned int*[size];
-	for (size_t i = 0; i < size; ++i)
+	for (i = 0; i < size; ++i)
 		scores[i] = new unsigned int[size]();
 
 	// set scores
-	size_t i, j;
 	for (i = 0; i < size; ++i)
 		for (j = i + 1; j < size; ++j)
 			scores[i][j] = get_score(words[i], words[j]);
