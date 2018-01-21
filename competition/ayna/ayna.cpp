@@ -11,7 +11,7 @@ unsigned int get_score (const std::string &lhs, const std::string &rhs)
 	unsigned int i = 0, temp, score = 0;
 	unsigned int lpos = lhs.rfind(rhs[0], lsize - 1);
 
-	while (lpos != -1 && lpos + rsize >= lsize) {
+	while (lpos + rsize >= lsize) {
 		temp = 0;
 		for(size_t j = lpos; j < lsize; ++j){
 			if(lhs[j] == rhs[i++])
